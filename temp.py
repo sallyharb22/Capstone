@@ -317,7 +317,7 @@ if menu_id == "Home":
     #st.write("")
     
     # Display an image
-    st.image("/Users/sallyharb/Desktop/MSc. in Business Analytics/Summer Semester/Capstone/pngtree-electronic-consumer-studio-photography-keyboard-shopping-cart-online-shopping-concept-map-picture-image_1541676.png", use_column_width=True)
+    st.image("pngtree-electronic-consumer-studio-photography-keyboard-shopping-cart-online-shopping-concept-map-picture-image_1541676.png", use_column_width=True)
     
 elif menu_id == "Market Basket Analysis":
     
