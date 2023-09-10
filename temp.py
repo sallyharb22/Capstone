@@ -62,10 +62,10 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Define local file paths
-Categories_file_path = '//Users/sallyharb/Desktop/MSc. in Business Analytics/Summer Semester/Capstone/Data from Dr. Maddah/Sheets To Work With/Category.xlsx'
-Areas_file_path = '/Users/sallyharb/Desktop/MSc. in Business Analytics/Summer Semester/Capstone/Data from Dr. Maddah/Sheets To Work With/Areas.xlsx'
-Receipts_file_path = '/Users/sallyharb/Desktop/MSc. in Business Analytics/Summer Semester/Capstone/Data from Dr. Maddah/Sheets To Work With/Receipts.xlsx'
-PredictiveAnalytics_file_path = '/Users/sallyharb/Desktop/MSc. in Business Analytics/Summer Semester/Capstone/Data from Dr. Maddah/Sheets To Work With/PredictiveAnalytics.xlsx'
+Categories_file_path = 'Category.xlsx'
+Areas_file_path = 'Areas.xlsx'
+Receipts_file_path = 'Receipts.xlsx'
+PredictiveAnalytics_file_path = 'PredictiveAnalytics.xlsx'
 
 # Load data files
 Categories = pd.read_excel(Categories_file_path)
