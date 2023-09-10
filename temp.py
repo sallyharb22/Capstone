@@ -4,9 +4,6 @@ import plotly.express as px
 import plotly.graph_objects as go
 import plotly.colors as colors
 from streamlit_lottie import st_lottie
-from sklearn.preprocessing import OneHotEncoder
-from sklearn.compose import ColumnTransformer
-from xgboost import XGBRegressor
 from sklearn.metrics import mean_squared_error, r2_score
 import plotly.figure_factory as ff
 import numpy as np
@@ -15,7 +12,6 @@ import seaborn as sns
 from sklearn.ensemble import RandomForestRegressor
 import joblib
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
 import re
 import ssl
 import matplotlib.colors as mcolors  # Import mcolors
@@ -27,17 +23,8 @@ from mlxtend.preprocessing import TransactionEncoder
 # Create an SSL context with certificate verification disabled
 ssl._create_default_https_context = ssl._create_unverified_context
 
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
-import nltk
-from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize
-from nltk.stem import WordNetLemmatizer
-from nltk.stem import PorterStemmer
-from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 import sklearn.feature_extraction.text as text
-from sklearn import model_selection, preprocessing, linear_model, naive_bayes, metrics, svm
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.linear_model import LogisticRegression
+from sklearn import model_selection, preprocessing, linear_model, metrics
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import LinearSVC
 from sklearn.model_selection import cross_val_score
@@ -47,8 +34,6 @@ from collections import Counter
 import pandas as pd
 import numpy as np
 import string
-from nltk.stem import SnowballStemmer
-from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split
 import os
 
