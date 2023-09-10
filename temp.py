@@ -426,36 +426,38 @@ elif menu_id == "Exploratory Data Analysis":
 
     # Place the third graph (horizontal bar chart for subcategories) at the top
     with col2:
-        # Calculate subcategory counts (third graph)
-        subcategory_counts = Receipts['Subcategories'].value_counts()
+       # Number of purchased items per area
+        items_per_area = Receipts.groupby('Area')['Purchased Item'].count()
+
+        # Sort the data in descending order
+        items_per_area_sorted = items_per_area.sort_values(ascending=False)
         
-        # Define the custom color palette
-        num_colors = len(subcategory_counts)  # Adjust this based on your data
-        color_palette = sns.color_palette("Blues_r", n_colors=num_colors)
+        # Set the Seaborn style to remove grid lines
+        sns.set_style("ticks")
 
-        # Create a horizontal bar chart for the third graph
+        # Create a horizontal bar plot
         plt.figure(figsize=(10, 10))
-        sns.barplot(x=subcategory_counts.values, y=subcategory_counts.index, palette=color_palette)
+        sns.barplot(x=items_per_area_sorted.values, y=items_per_area_sorted.index, orient='h', palette=color_palette, order=items_per_area_sorted.index)
 
-        # Add labels and title for the third graph
+        # Add labels and title
         plt.xlabel('Count', fontsize=14)
-        plt.ylabel('Subcategory', fontsize=14)
-        plt.title('Number of Purchased Items per Subcategory', fontsize=16, fontweight='bold')
+        plt.ylabel('Area', fontsize=14)
+        plt.title('Number of Purchased Items per Area', fontsize=16, fontweight='bold')
        
         # Adjust layout for better spacing
-        plt.subplots_adjust(top=0.9)  # Add space between title and graph
+        plt.subplots_adjust(top=0.9)  # Add space between title and graph) 
 
-        # Beautify the third plot
+        # Beautify the plot
         sns.despine()  # Remove top and right spines
 
         plt.tight_layout()
         
-        # Display the third plot using st.pyplot()
+        # Display the plot using st.pyplot()
         st.pyplot(plt)
-
+        
         # Add some spacing between the first and second graphs
         st.write("")
-
+        
         # Calculate category counts
         category_counts = Categories['Category'].value_counts()
 
@@ -517,38 +519,6 @@ elif menu_id == "Exploratory Data Analysis":
         
     # Place the horizontal bar plot in the first column
     with col1:
-        
-        # Number of purchased items per area
-        items_per_area = Receipts.groupby('Area')['Purchased Item'].count()
-
-        # Sort the data in descending order
-        items_per_area_sorted = items_per_area.sort_values(ascending=False)
-        
-        # Set the Seaborn style to remove grid lines
-        sns.set_style("ticks")
-
-        # Create a horizontal bar plot
-        plt.figure(figsize=(10, 10))
-        sns.barplot(x=items_per_area_sorted.values, y=items_per_area_sorted.index, orient='h', palette=color_palette, order=items_per_area_sorted.index)
-
-        # Add labels and title
-        plt.xlabel('Count', fontsize=14)
-        plt.ylabel('Area', fontsize=14)
-        plt.title('Number of Purchased Items per Area', fontsize=16, fontweight='bold')
-       
-        # Adjust layout for better spacing
-        plt.subplots_adjust(top=0.9)  # Add space between title and graph) 
-
-        # Beautify the plot
-        sns.despine()  # Remove top and right spines
-
-        plt.tight_layout()
-        
-        # Display the plot using st.pyplot()
-        st.pyplot(plt)
-        
-        # Add some spacing between the first and second graphs
-        st.write("")
         
         # Calculate the number of items per order
         items_per_order = Receipts.groupby('Order Number')['Purchased Item'].count()
